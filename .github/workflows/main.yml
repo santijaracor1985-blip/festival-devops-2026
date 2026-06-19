@@ -2,7 +2,10 @@ name: Verificar Proyecto
 
 on:
   push:
+    branches: [main]
+
   pull_request:
+    branches: [main]
 
 jobs:
   validar:
@@ -12,14 +15,20 @@ jobs:
       - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: Verificar index.html
-        run: test -f index.html
+      - name: Verificar frontend/index.html
+        run: test -f frontend/index.html
 
-      - name: Verificar style.css
-        run: test -f css/style.css
+      - name: Verificar frontend/style.css
+        run: test -f frontend/style.css
 
-      - name: Verificar script.js
-        run: test -f js/script.js
+      - name: Verificar backend/app.py
+        run: test -f backend/app.py
+
+      - name: Verificar requirements.txt
+        run: test -f backend/requirements.txt
 
       - name: Verificar README
         run: test -f README.md
+
+      - name: Verificar docker-compose
+        run: test -f docker-compose.yml
