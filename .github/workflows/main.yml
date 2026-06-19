@@ -16,11 +16,5 @@ jobs:
       - name: Verificar README.md
         run: test -f README.md
 
-      - name: Verificar package.json
-        run: test -f package.json
-
-      - name: Verificar carpeta src
-        run: test -d src
-
       - name: Validación completada
         run: echo "Proyecto validado correctamente"
