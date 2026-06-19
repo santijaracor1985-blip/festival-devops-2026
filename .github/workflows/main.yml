@@ -2,19 +2,24 @@ name: Verificar Proyecto
 
 on:
   push:
-    branches:
-      - main
+  pull_request:
 
 jobs:
   validar:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar repositorio
+      - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: Verificar README.md
-        run: test -f README.md
+      - name: Verificar index.html
+        run: test -f index.html
 
-      - name: Validación completada
-        run: echo "Proyecto validado correctamente"
+      - name: Verificar style.css
+        run: test -f css/style.css
+
+      - name: Verificar script.js
+        run: test -f js/script.js
+
+      - name: Verificar README
+        run: test -f README.md
